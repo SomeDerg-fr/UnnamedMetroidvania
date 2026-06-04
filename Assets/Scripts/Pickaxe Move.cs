@@ -36,7 +36,6 @@ public class PickaxeMove: MonoBehaviour
         {
             directionAngle = Mathf.Acos(direction.y / Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y)) * 180 / Mathf.PI;
         }
-        Debug.Log(rotZ);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0,180,directionAngle), Time.deltaTime * 5);
     }
