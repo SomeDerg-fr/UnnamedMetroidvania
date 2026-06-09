@@ -845,8 +845,9 @@ MonoBehaviour:
   DownLeft: {fileID: 1576504283}
   UpRight: {fileID: 1074046986}
   cameraSpeed: 0.1
-  cameraRangeX: 2
-  cameraRangeY: 1
+  cameraRangeX: 7
+  cameraRangeUp: 4
+  cameraRangeDown: 4
 --- !u!1 &520541852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,8 +1297,8 @@ Transform:
   m_GameObject: {fileID: 1315338245}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.88779, y: -1.89361, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: -2.1, z: 0}
+  m_LocalScale: {x: 0.8409, y: 0.8409, z: 0.8409}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1402912923}
@@ -1895,8 +1896,8 @@ Transform:
   m_GameObject: {fileID: 1800665713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.39, y: -0.66, z: 0}
-  m_LocalScale: {x: 2.0872, y: 2.0872, z: 2.0872}
+  m_LocalPosition: {x: -6.4093, y: -2.16, z: 0}
+  m_LocalScale: {x: 1.5012324, y: 1.5012324, z: 1.5012324}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 520541853}
@@ -1960,7 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db10ac0cf69ac3a47bc221d382b09f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 0.01
+  moveSpeed: 0.018
   jumpHeight: 60
 --- !u!4 &1808010375 stripped
 Transform:

@@ -7,7 +7,8 @@ public class Camera: MonoBehaviour
     [SerializeField] GameObject UpRight;
     [SerializeField] float cameraSpeed;
     [SerializeField] float cameraRangeX;
-    [SerializeField] float cameraRangeY;
+    [SerializeField] float cameraRangeUp;
+    [SerializeField] float cameraRangeDown;
 
     float playerX;
     float playerY;
@@ -30,31 +31,27 @@ public class Camera: MonoBehaviour
 
         //Camera Movement logic
         //move up
-        if (top - playerY < cameraRangeY)
+        if (top - cameraRangeUp < playerY)
         {
-            if (top - playerY < cameraSpeed)
+            if (playerY - (top - cameraRangeUp) > cameraSpeed)
             {
                 move += new Vector2(0, cameraSpeed);
-                Debug.Log("1");
             }
             else
             {
-                move += new Vector2(0, top - playerY);
-                Debug.Log("2");
+                move += new Vector2(0, playerY - (top - cameraRangeUp));
             }
         }
         //move down
-        if (bottom - playerY > cameraRangeY)
+        if (bottom + cameraRangeDown > playerY)
         {
-            if (bottom - playerY > -cameraSpeed)
+            if (bottom + cameraRangeDown - playerY > cameraSpeed)
             {
                 move += new Vector2(0, -cameraSpeed);
-                Debug.Log("3");
             }
             else
             {
-                move += new Vector2(0, bottom - playerY);
-                Debug.Log("4");
+                move -= new Vector2(0, bottom + cameraRangeDown - playerY);
             }
         }
         //move left
@@ -63,28 +60,24 @@ public class Camera: MonoBehaviour
             if (left + cameraRangeX - playerX > cameraSpeed)
             {
                 move += new Vector2(-cameraSpeed, 0);
-                Debug.Log("5");
             }
             else
             {
-                move += new Vector2(left + cameraRangeX - playerX, 0);
-                Debug.Log("6");
+                move -= new Vector2(left + cameraRangeX - playerX, 0);
             }
         }
         //move right
         if (right - cameraRangeX < playerX)
         {
-            if (right - cameraRangeX - playerX > -cameraSpeed)
+            if (playerX - (right - cameraRangeX) > cameraSpeed)
             {
                 move += new Vector2(cameraSpeed, 0);
-                Debug.Log("5");
             }
             else
             {
-                move += new Vector2(bottom - playerY, 0);
-                Debug.Log("6");
+                move += new Vector2(playerX - (right - cameraRangeX), 0);
             }
         }
-        transform.position = (Vector2)transform.position + move;
+        transform.Translate(move);
     }
 }
