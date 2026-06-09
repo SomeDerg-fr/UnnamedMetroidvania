@@ -58,11 +58,25 @@ public class Camera: MonoBehaviour
             }
         }
         //move left
-        if (left - playerX > cameraRangeX)
+        if (left + cameraRangeX > playerX)
         {
-            if (left - playerX > -cameraSpeed)
+            if (left + cameraRangeX - playerX > cameraSpeed)
             {
                 move += new Vector2(-cameraSpeed, 0);
+                Debug.Log("5");
+            }
+            else
+            {
+                move += new Vector2(left + cameraRangeX - playerX, 0);
+                Debug.Log("6");
+            }
+        }
+        //move right
+        if (right - cameraRangeX < playerX)
+        {
+            if (right - cameraRangeX - playerX > -cameraSpeed)
+            {
+                move += new Vector2(cameraSpeed, 0);
                 Debug.Log("5");
             }
             else
@@ -71,6 +85,6 @@ public class Camera: MonoBehaviour
                 Debug.Log("6");
             }
         }
-        transform.Translate(move);
+        transform.position = (Vector2)transform.position + move;
     }
 }
